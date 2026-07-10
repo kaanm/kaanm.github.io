@@ -354,3 +354,28 @@ video {
         padding: 15px;
     }
 }
+/* PowerPoint/Office Viewer - Doğal Boyut ve Ortalama */
+#pptx-section iframe,
+.pptx-viewer iframe {
+    display: block;
+    margin: 20px auto;  /* Ortalar */
+    max-width: 100%;    /* Ekranı taşmasın */
+    width: auto;        /* Doğal genişlik */
+    height: 600px;      /* Sabit yükseklik */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* PowerPoint Container */
+#pptx-section .file-item {
+    text-align: center;  /* İçeriği ortala */
+}
+
+/* Responsive - Mobilde tam genişlik */
+@media (max-width: 768px) {
+    #pptx-section iframe {
+        width: 100%;
+        height: 400px;
+    }
+}
