@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaan Mert - Dosyalarım</title>
+    <title>Kaan Menekşedağ - Dosyalarım</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; padding: 20px; }
@@ -11,10 +11,9 @@
         h1 { text-align: center; margin: 30px 0; color: #1a1a1a; font-size: 2.5em; }
         .category { margin-bottom: 40px; }
         .category h2 { color: #2c3e50; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #3498db; }
-        .file-list { list-style: none; }
-        .file-item { background: white; padding: 15px 20px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s; }
-        .file-item:hover { transform: translateX(5px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-        .file-name { font-size: 1.1em; color: #333; }
+        .file-item { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .file-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .file-name { font-size: 1.2em; color: #333; font-weight: 600; }
         .btn { padding: 8px 16px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9em; }
         .btn:hover { background: #2980b9; }
         .btn-pdf { background: #e74c3c; }
@@ -23,79 +22,102 @@
         .btn-pptx:hover { background: #d68910; }
         .btn-mp4 { background: #27ae60; }
         .btn-mp4:hover { background: #1e8449; }
+        iframe { width: 100%; height: 600px; border: 1px solid #ddd; border-radius: 5px; }
         video { width: 100%; max-width: 800px; margin: 20px auto; display: block; border-radius: 8px; }
+        .info { color: #666; font-size: 0.9em; margin-bottom: 10px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>📁 Dosyalarım</h1>
 
-        <!-- PDF DOSYALARI -->
+        <!-- PDF DOSYALARI - Otomatik iframe ile -->
         <div class="category">
             <h2>📄 PDF Belgeleri</h2>
-            <ul class="file-list" id="pdf-list"></ul>
+            <div id="pdf-container"></div>
         </div>
 
         <!-- PPTX DOSYALARI -->
         <div class="category">
-            <h2>📊 Sunumlar</h2>
-            <ul class="file-list" id="pptx-list"></ul>
+            <h2> Sunumlar</h2>
+            <div id="pptx-container"></div>
         </div>
 
         <!-- MP4 DOSYALARI -->
         <div class="category">
-            <h2>🎥 Videolar</h2>
-            <ul class="file-list" id="mp4-list"></ul>
-            <video id="video-player" controls style="display:none;">
-                <source src="" type="video/mp4">
-            </video>
+            <h2> Videolar</h2>
+            <div id="mp4-container"></div>
         </div>
     </div>
 
     <script>
-        // BURAYA DOSYA İSİMLERİNİ EKLEYİN (Sadece bu kısmı düzenleyin!)
+        // ===== SADECE BURAYI DÜZENLEYİN =====
         const pdfFiles = [
-            "COMBINED RADIATION AND CONDUCTION HEAT TRANSFER SOLVER ON HYBRID CPU-GPU ARCHITECTURES.pdf",
-            "RAY TRACING ON GRAPHIC PROCESSORS.pdf",
-            "SEGREGATED APPROACH FOR THE MODELING OF CONTINUOUS HEAT TREATMENT FURNACES.pdf",
-            "ParCFD2019_Extended_Abstract.pdf",                        
+            "33rd_Sisecam_Glass_Symposium_BASOL.pdf",
+            "COMBINED_RADIATION_AND_CONDUCTION_HEAT_TRANSFER_SOLVER_ON_HYBRID_CPU-GPU_ARCHITECTURES.pdf",
+            "ParCFD2019_Extended_Abstract.pdf",
+            "RAY_TRACING_ON_GRAPHIC_PROCESSORS.pdf",
+            "SEGREGATED_APPROACH_FOR_THE_MODELING_OF_CONTINUOUS_HEAT_TREATMENT_FURNACES.pdf",
             "The_Thesis2.pdf"
         ];
 
         const pptxFiles = [
-            "33rd_Sisecam_Glass_Symposium_BASOL.pptx",
-            "ParCFD2019.pptx"
+            "ODTÜ Final Proje-Garbage Collector.pptx"
         ];
 
         const mp4Files = [
-            "ODTÜ Final Proje-Garbage Collector.mp4"
+            "VLC.mp4"
         ];
+        // ====================================
 
-        // Otomatik liste oluşturma
-        function createFileList(files, listId, btnClass, btnText) {
-            const list = document.getElementById(listId);
-            files.forEach(file => {
-                const li = document.createElement('li');
-                li.className = 'file-item';
-                li.innerHTML = `
-                    <span class="file-name">${file.replace(/\.[^/.]+$/, "")}</span>
-                    <a href="${file}" class="btn ${btnClass}" download>${btnText}</a>
-                `;
-                list.appendChild(li);
-            });
-        }
+        // PDF'leri otomatik listele ve iframe ile göster
+        const pdfContainer = document.getElementById('pdf-container');
+        pdfFiles.forEach((file, index) => {
+            const div = document.createElement('div');
+            div.className = 'file-item';
+            div.innerHTML = `
+                <div class="file-header">
+                    <span class="file-name">📄 ${file.replace(/\.[^/.]+$/, "").replace(/_/g, " ")}</span>
+                    <a href="${file}" class="btn btn-pdf" download>PDF İndir</a>
+                </div>
+                <p class="info">PDF önizlemesi aşağıda yükleniyor...</p>
+                <iframe src="${file}#toolbar=0" title="PDF ${index + 1}"></iframe>
+            `;
+            pdfContainer.appendChild(div);
+        });
 
-        createFileList(pdfFiles, 'pdf-list', 'btn-pdf', 'İndir');
-        createFileList(pptxFiles, 'pptx-list', 'btn-pptx', 'İndir');
-        createFileList(mp4Files, 'mp4-list', 'btn-mp4', 'İndir');
+        // PPTX dosyaları (iframe ile gösterilemez, sadece indirme)
+        const pptxContainer = document.getElementById('pptx-container');
+        pptxFiles.forEach(file => {
+            const div = document.createElement('div');
+            div.className = 'file-item';
+            div.innerHTML = `
+                <div class="file-header">
+                    <span class="file-name">📊 ${file.replace(/\.[^/.]+$/, "").replace(/_/g, " ")}</span>
+                    <a href="${file}" class="btn btn-pptx" download>Sunumu İndir</a>
+                </div>
+                <p class="info">PowerPoint dosyaları tarayıcıda görüntülenemez. İndirip açmanız gerekir.</p>
+            `;
+            pptxContainer.appendChild(div);
+        });
 
-        // Video oynatıcı
-        if (mp4Files.length > 0) {
-            const videoPlayer = document.getElementById('video-player');
-            videoPlayer.style.display = 'block';
-            videoPlayer.querySelector('source').src = mp4Files[0];
-            videoPlayer.load();
-        }
+        // MP4 dosyaları
+        const mp4Container = document.getElementById('mp4-container');
+        mp4Files.forEach(file => {
+            const div = document.createElement('div');
+            div.className = 'file-item';
+            div.innerHTML = `
+                <div class="file-header">
+                    <span class="file-name">🎥 ${file.replace(/\.[^/.]+$/, "").replace(/_/g, " ")}</span>
+                    <a href="${file}" class="btn btn-mp4" download>Video İndir</a>
+                </div>
+                <video controls>
+                    <source src="${file}" type="video/mp4">
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
+            `;
+            mp4Container.appendChild(div);
+        });
     </script>
 </body>
 </html>
