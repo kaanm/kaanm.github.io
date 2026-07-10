@@ -1,121 +1,245 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 10px; 
+    background: #f0f2f5;
+}
+
+/* WRAPPER - Flexbox Layout */
+.wrapper {
+    display: flex;
     min-height: 100vh;
 }
-.container { 
-    max-width: 100%;  /* TAM GENİŞLİK */
-    margin: 0 auto; 
-    padding: 0 20px;
+
+/* SOL MENÜ (SIDEBAR) */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
 }
-h1 { 
-    text-align: center; 
-    margin: 20px 0; 
-    color: white; 
+
+.sidebar-header {
+    padding: 30px 20px;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-header h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    margin-bottom: 5px;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-left-color: #3498db;
+    padding-left: 30px;
+}
+
+.nav-link.active {
+    background: rgba(52, 152, 219, 0.2);
+    color: white;
+    border-left-color: #3498db;
+    font-weight: 600;
+}
+
+.nav-icon {
+    font-size: 1.3em;
+    margin-right: 12px;
+    width: 30px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 2px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+/* ANA İÇERİK */
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    padding: 30px;
+    max-width: calc(100% - 280px);
+}
+
+.main-content h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #1a1a1a;
     font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
-.category { 
+
+.category {
     background: white;
-    margin-bottom: 30px; 
+    margin-bottom: 40px;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    scroll-margin-top: 30px;
 }
-.category h2 { 
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+.category h2 {
+    background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
-    padding: 20px;
+    padding: 20px 30px;
     font-size: 1.5em;
 }
-.file-item { 
-    padding: 25px; 
+
+.file-item {
+    padding: 25px;
     border-bottom: 1px solid #eee;
     transition: all 0.3s ease;
 }
+
 .file-item:hover {
     background: #f8f9fa;
 }
+
 .file-item:last-child {
     border-bottom: none;
 }
-.file-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 15px; 
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
     flex-wrap: wrap;
     gap: 10px;
 }
-.file-name { 
-    font-size: 1.2em; 
-    color: #2c3e50; 
+
+.file-name {
+    font-size: 1.2em;
+    color: #333;
     font-weight: 600;
 }
-.btn { 
-    padding: 10px 20px; 
-    color: white; 
-    text-decoration: none; 
-    border-radius: 8px; 
+
+.btn {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
     font-size: 0.95em;
     transition: all 0.3s;
     display: inline-block;
     cursor: pointer;
     border: none;
 }
-.btn:hover { 
+
+.btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+
 .btn-pdf { background: linear-gradient(135deg, #e74c3c, #c0392b); }
 .btn-pptx { background: linear-gradient(135deg, #f39c12, #d68910); }
 .btn-mp4 { background: linear-gradient(135deg, #27ae60, #1e8449); }
-.pdf-viewer { 
-    width: 100%; 
-    max-height: 700px;  /* MAKSİMUM YÜKSEKLİK */
-    overflow-y: auto;   /* KAYDIRMA ÇUBUĞU */
-    border: 2px solid #ddd; 
+
+.video-description {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    border-radius: 5px;
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.info {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+/* PDF Viewer */
+.pdf-viewer {
+    width: 100%;
+    max-height: 700px;
+    overflow-y: auto;
+    border: 2px solid #ddd;
     border-radius: 8px;
     margin-top: 10px;
     background: #f5f5f5;
     padding: 10px;
 }
-.pdf-canvas { 
-    max-width: 100%; 
+
+.pdf-canvas {
+    max-width: 100%;
     height: auto;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     display: block;
     margin: 0 auto;
 }
-.pdf-loading {
-    color: #666;
-    font-size: 1.1em;
-    padding: 20px;
-}
-.pdf-error {
-    color: #e74c3c;
-    padding: 20px;
-    text-align: center;
-}
-video { 
-    width: 100%; 
+
+video {
+    width: 100%;
     max-width: 100%;
-    margin: 20px auto; 
-    display: block; 
+    margin: 20px auto;
+    display: block;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
-.info { 
-    color: #666; 
-    font-size: 0.95em; 
-    margin-bottom: 10px;
-    font-style: italic;
-}
+
+/* MOBİL UYUMLULUK */
 @media (max-width: 768px) {
-    .file-header { flex-direction: column; align-items: flex-start; }
-    h1 { font-size: 1.8em; }
-    body { padding: 5px; }
-    .container { padding: 0 10px; }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 15px;
+    }
+    
+    .wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar-nav {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+    }
+    
+    .nav-link {
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        margin: 0 5px;
+        padding: 10px 15px;
+    }
+    
+    .nav-link.active {
+        border-bottom-color: #3498db;
+    }
 }
