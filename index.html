@@ -131,7 +131,7 @@ pptxFiles.forEach((file, index) => {
     pptxContainer.appendChild(div);
 });
 
-// MP4 dosyalarını listele ve oynat
+// MP4 dosyalarını listele ve oynat - DOĞRU SIRALAMA
 const mp4Container = document.getElementById('mp4-container');
 mp4Files.forEach(item => {
     const fileName = item.file.replace('.mp4', '').replace(/_/g, ' ');
@@ -140,14 +140,19 @@ mp4Files.forEach(item => {
     const div = document.createElement('div');
     div.className = 'file-item';
     div.innerHTML = `
-        <p class="info" style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-left: 3px solid #27ae60; border-radius: 3px; word-wrap: break-word; overflow-wrap: break-word; white-space: pre-line; max-width: 100%; box-sizing: border-box;">
-            <strong> Açıklama:</strong> ${item.description}
-        </p>
+        <!-- 1. BAŞLIK (EN ÜSTTE) -->
         <div class="file-header">
             <span class="file-name"> ${fileName}</span>
             <a href="${encodedFile}" class="btn btn-mp4" download>📥 Video İndir</a>
         </div>
-        <video controls preload="metadata" style="width: 100%; max-width: 100%; margin: 20px auto; display: block; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+        
+        <!-- 2. AÇIKLAMA (ORTADA) -->
+        <p class="info" style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 3px solid #27ae60; border-radius: 3px; word-wrap: break-word; overflow-wrap: break-word; white-space: pre-line; max-width: 100%; box-sizing: border-box;">
+            <strong> Açıklama:</strong> ${item.description}
+        </p>
+        
+        <!-- 3. VİDEO (EN ALTTA) -->
+        <video controls preload="metadata" style="width: 100%; max-width: 100%; height: auto; min-height: 500px; margin: 20px auto; display: block; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); background: #000;">
             <source src="${encodedFile}" type="video/mp4">
             Tarayıcınız video etiketini desteklemiyor.
         </video>
