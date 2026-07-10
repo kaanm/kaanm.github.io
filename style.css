@@ -325,57 +325,53 @@ video {
         text-align: center;
     }
 }
-/* PDF Iframe - Büyük ve Ortalanmış */
+/* PDF Iframe - BÜYÜT ve ORTALA */
 #pdf-section iframe {
-    display: block;
-    margin: 20px auto;
-    width: 90%;           /* Genişlik */
-    max-width: 1000px;    /* Maksimum genişlik */
-    height: 800px;        /* Yükseklik (artırıldı) */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: block !important;
+    margin: 30px auto !important;
+    width: 95% !important;
+    max-width: 1200px !important;
+    height: 900px !important;  /* Yükseklik artırıldı */
+    border: 2px solid #ddd !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
 }
 
-/* PDF Container - Ortalama */
+/* PDF Container */
 #pdf-section .file-item {
-    text-align: center;
-    padding: 30px;
+    text-align: center !important;
+    padding: 30px 20px !important;
 }
 
-/* Mobil Uyumlu */
+/* Mobil */
 @media (max-width: 768px) {
     #pdf-section iframe {
-        width: 100%;
-        height: 500px;
-    }
-    
-    #pdf-section .file-item {
-        padding: 15px;
+        width: 100% !important;
+        height: 600px !important;
     }
 }
-/* PowerPoint/Office Viewer - Doğal Boyut ve Ortalama */
-#pptx-section iframe,
-.pptx-viewer iframe {
-    display: block;
-    margin: 20px auto;  /* Ortalar */
-    max-width: 100%;    /* Ekranı taşmasın */
-    width: auto;        /* Doğal genişlik */
-    height: 600px;      /* Sabit yükseklik */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* PDF Iframe - BÜYÜT ve ORTALA */
+#pdf-section iframe {
+    display: block !important;
+    margin: 30px auto !important;
+    width: 95% !important;
+    max-width: 1200px !important;
+    height: 900px !important;  /* Yükseklik artırıldı */
+    border: 2px solid #ddd !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
 }
 
-/* PowerPoint Container */
-#pptx-section .file-item {
-    text-align: center;  /* İçeriği ortala */
+/* PDF Container */
+#pdf-section .file-item {
+    text-align: center !important;
+    padding: 30px 20px !important;
 }
 
-/* Responsive - Mobilde tam genişlik */
+/* Mobil */
 @media (max-width: 768px) {
-    #pptx-section iframe {
-        width: 100%;
-        height: 400px;
+    #pdf-section iframe {
+        width: 100% !important;
+        height: 600px !important;
     }
 }
