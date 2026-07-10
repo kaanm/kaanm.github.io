@@ -302,7 +302,23 @@ video {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
 }
+/* VİDEO BÜYÜT */
+#mp4-section video {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 500px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 20px auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2) !important;
+    background: #000 !important;
+}
 
+/* Video container padding artır */
+#mp4-section .file-item {
+    padding: 30px !important;
+}
 /* =============================== */
 /* MOBİL UYUMLULUK */
 /* =============================== */
