@@ -136,7 +136,6 @@ const mp4Container = document.getElementById('mp4-container');
 mp4Files.forEach(item => {
     const fileName = item.file.replace('.mp4', '').replace(/_/g, ' ');
     const encodedFile = encodeURI(item.file);
-    const fullVideoUrl = `https://kaanm.github.io/${encodedFile}`;
     
     const div = document.createElement('div');
     div.className = 'file-item';
@@ -148,18 +147,10 @@ mp4Files.forEach(item => {
             <span class="file-name"> ${fileName}</span>
             <a href="${encodedFile}" class="btn btn-mp4" download>📥 Video İndir</a>
         </div>
-        <video controls preload="auto" playsinline style="width: 100%; max-width: 100%; margin: 20px auto; display: block; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); background: #000;">
-            <source src="${fullVideoUrl}" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
-            <p style="color: #e74c3c; text-align: center; padding: 20px;">
-                ⚠️ Video yüklenemedi. 
-                <a href="${fullVideoUrl}" target="_blank" style="color: #3498db; text-decoration: underline;">
-                    Yeni sekmede açmak için tıklayın
-                </a>
-            </p>
+        <video controls preload="metadata" style="width: 100%; max-width: 100%; margin: 20px auto; display: block; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+            <source src="${encodedFile}" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
         </video>
-        <p style="color: #666; font-size: 0.85em; text-align: center; margin-top: 10px;">
-            Video açılmıyorsa <a href="${fullVideoUrl}" target="_blank" style="color: #3498db;">buraya tıklayın</a>
-        </p>
     `;
     mp4Container.appendChild(div);
 });
