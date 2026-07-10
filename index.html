@@ -1,40 +1,101 @@
-<!-- DOSYALAR BÖLÜMÜ BAŞLANGIÇ -->
-<section id="dosyalar" style="padding: 40px 20px; font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto;">
-    <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Dosyalarım ve Çalışmalarım</h2>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaan Mert - Dosyalarım</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; padding: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { text-align: center; margin: 30px 0; color: #1a1a1a; font-size: 2.5em; }
+        .category { margin-bottom: 40px; }
+        .category h2 { color: #2c3e50; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #3498db; }
+        .file-list { list-style: none; }
+        .file-item { background: white; padding: 15px 20px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s; }
+        .file-item:hover { transform: translateX(5px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .file-name { font-size: 1.1em; color: #333; }
+        .btn { padding: 8px 16px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9em; }
+        .btn:hover { background: #2980b9; }
+        .btn-pdf { background: #e74c3c; }
+        .btn-pdf:hover { background: #c0392b; }
+        .btn-pptx { background: #f39c12; }
+        .btn-pptx:hover { background: #d68910; }
+        .btn-mp4 { background: #27ae60; }
+        .btn-mp4:hover { background: #1e8449; }
+        video { width: 100%; max-width: 800px; margin: 20px auto; display: block; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 Dosyalarım</h1>
 
-    <!-- 1. PDF BÖLÜMÜ (Sayfa içinde görünür) -->
-    <div style="margin-bottom: 40px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <div style="background: #f4f4f4; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0; color: #d9534f;">📄 PDF Belgesi (Örn: CV veya Makale)</h3>
-            <a href="benim-dosyam.pdf" download style="background: #d9534f; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">İndir</a>
+        <!-- PDF DOSYALARI -->
+        <div class="category">
+            <h2>📄 PDF Belgeleri</h2>
+            <ul class="file-list" id="pdf-list"></ul>
         </div>
-        <!-- PDF'i doğrudan sitede gösterir -->
-        <iframe src="benim-dosyam.pdf" width="100%" height="500px" style="border: none;"></iframe>
+
+        <!-- PPTX DOSYALARI -->
+        <div class="category">
+            <h2>📊 Sunumlar</h2>
+            <ul class="file-list" id="pptx-list"></ul>
+        </div>
+
+        <!-- MP4 DOSYALARI -->
+        <div class="category">
+            <h2>🎥 Videolar</h2>
+            <ul class="file-list" id="mp4-list"></ul>
+            <video id="video-player" controls style="display:none;">
+                <source src="" type="video/mp4">
+            </video>
+        </div>
     </div>
 
-    <!-- 2. PPTX BÖLÜMÜ (Tarayıcıda açılmaz, indirme linki verilir) -->
-    <div style="margin-bottom: 40px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <div style="background: #f4f4f4; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0; color: #f0ad4e;">📊 Sunum Dosyası (PPTX)</h3>
-            <a href="sunumum.pptx" download style="background: #f0ad4e; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">Sunumu İndir</a>
-        </div>
-        <div style="padding: 20px; text-align: center; color: #666;">
-            <p>PowerPoint dosyaları tarayıcılarda doğrudan görüntülenemez. İndirip bilgisayarınızda açabilirsiniz.</p>
-            <p><em>İpucu: Eğer sunumun sitede görüntülenmesini istiyorsanız, PPTX'i PDF'e çevirip yukarıdaki PDF kodunu kullanın.</em></p>
-        </div>
-    </div>
+    <script>
+        // BURAYA DOSYA İSİMLERİNİ EKLEYİN (Sadece bu kısmı düzenleyin!)
+        const pdfFiles = [
+            "COMBINED RADIATION AND CONDUCTION HEAT TRANSFER SOLVER ON HYBRID CPU-GPU ARCHITECTURES.pdf",
+            "RAY TRACING ON GRAPHIC PROCESSORS.pdf",
+            "SEGREGATED APPROACH FOR THE MODELING OF CONTINUOUS HEAT TREATMENT FURNACES.pdf",
+            "ParCFD2019_Extended_Abstract.pdf",                        
+            "The_Thesis2.pdf"
+        ];
 
-    <!-- 3. MP4 BÖLÜMÜ (Video oynatıcı) -->
-    <div style="margin-bottom: 40px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <div style="background: #f4f4f4; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0; color: #5bc0de;">🎥 Video Sunumu / Tanıtım (MP4)</h3>
-            <a href="videom.mp4" download style="background: #5bc0de; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">Videoyu İndir</a>
-        </div>
-        <!-- Video oynatıcı -->
-        <video width="100%" controls style="display: block; background: #000;">
-            <source src="ODTÜ Final Proje-Garbage Collector.mp4" type="video/mp4">
-            Tarayıcınız video etiketini desteklemiyor.
-        </video>
-    </div>
-</section>
-<!-- DOSYALAR BÖLÜMÜ BİTİŞ -->
+        const pptxFiles = [
+            "33rd_Sisecam_Glass_Symposium_BASOL.pptx",
+            "ParCFD2019.pptx"
+        ];
+
+        const mp4Files = [
+            "ODTÜ Final Proje-Garbage Collector.mp4"
+        ];
+
+        // Otomatik liste oluşturma
+        function createFileList(files, listId, btnClass, btnText) {
+            const list = document.getElementById(listId);
+            files.forEach(file => {
+                const li = document.createElement('li');
+                li.className = 'file-item';
+                li.innerHTML = `
+                    <span class="file-name">${file.replace(/\.[^/.]+$/, "")}</span>
+                    <a href="${file}" class="btn ${btnClass}" download>${btnText}</a>
+                `;
+                list.appendChild(li);
+            });
+        }
+
+        createFileList(pdfFiles, 'pdf-list', 'btn-pdf', 'İndir');
+        createFileList(pptxFiles, 'pptx-list', 'btn-pptx', 'İndir');
+        createFileList(mp4Files, 'mp4-list', 'btn-mp4', 'İndir');
+
+        // Video oynatıcı
+        if (mp4Files.length > 0) {
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.style.display = 'block';
+            videoPlayer.querySelector('source').src = mp4Files[0];
+            videoPlayer.load();
+        }
+    </script>
+</body>
+</html>
