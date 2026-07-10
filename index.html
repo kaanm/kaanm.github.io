@@ -67,13 +67,25 @@ const pptxFiles = [
 ];
 
 const mp4Files = [
-    {
-        file: "ODTÜ Final Proje-Garbage Collector.mp4",
-        title: "Garbage Collector Projesi",
-        description: "ODTÜ EEE Bitirme Projesi - Çöp Toplayıcı Robot Simülasyonu"
-    }
-];
+    "ODTÜ Final Proje-Garbage Collector.mp4",     
 
+];
+    
+<div class="file-item">
+    <div class="file-header">
+        <span class="file-name">🎥 ODTÜ Final Proje-Garbage Collector</span>
+        <a href="ODTÜ Final Proje-Garbage Collector.mp4" class="btn btn-mp4" download>📥 Video İndir</a>
+    </div>
+    <video controls>
+        <source src="ODTÜ Final Proje-Garbage Collector.mp4" type="video/mp4">
+        Tarayıcınız video etiketini desteklemiyor.
+    </video>
+    <p style="margin-top: 15px; color: #666; font-size: 0.95em; padding: 10px; background: #f8f9fa; border-radius: 5px;">
+        <strong>Proje Hakkında:</strong> ODTÜ Makine Mühendisliği Bölümü Bitirme Projesi - 
+        Çöp Toplayıcı Robot Simülasyonu. Bu projede otonom çöp toplama sistemi geliştirilmiştir.
+    </p>
+</div>
+    
 // PDF'leri otomatik listele ve göster
 const pdfContainer = document.getElementById('pdf-container');
 pdfFiles.forEach((file, index) => {
