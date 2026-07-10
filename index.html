@@ -181,7 +181,7 @@ dipolFiles.forEach((file, index) => {
     div.innerHTML = `
         <div class="file-header">
             <span class="file-name">📄 ${fileName}</span>
-            <a href="${encodedFile}" class="btn btn-pdf" download>📥 PDF İndir</a>
+            <a href="${encodedFile}" class="btn btn-dipol" download>📥 PDF İndir</a>
         </div>
         <p class="info">PDF önizlemesi aşağıda görüntüleniyor...</p>
         <iframe src="${encodedFile}#toolbar=0" title="PDF ${index + 1}"></iframe>
