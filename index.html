@@ -1,103 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaan Menekşedağ</title>
+<!-- DOSYALAR BÖLÜMÜ BAŞLANGIÇ -->
+<section id="dosyalar" style="padding: 40px 20px; font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto;">
+    <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Dosyalarım ve Çalışmalarım</h2>
 
-<link rel="stylesheet" href="style.css">
-</head>
+    <!-- 1. PDF BÖLÜMÜ (Sayfa içinde görünür) -->
+    <div style="margin-bottom: 40px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div style="background: #f4f4f4; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; color: #d9534f;">📄 PDF Belgesi (Örn: CV veya Makale)</h3>
+            <a href="benim-dosyam.pdf" download style="background: #d9534f; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">İndir</a>
+        </div>
+        <!-- PDF'i doğrudan sitede gösterir -->
+        <iframe src="benim-dosyam.pdf" width="100%" height="500px" style="border: none;"></iframe>
+    </div>
 
-<body>
+    <!-- 2. PPTX BÖLÜMÜ (Tarayıcıda açılmaz, indirme linki verilir) -->
+    <div style="margin-bottom: 40px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div style="background: #f4f4f4; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; color: #f0ad4e;">📊 Sunum Dosyası (PPTX)</h3>
+            <a href="sunumum.pptx" download style="background: #f0ad4e; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">Sunumu İndir</a>
+        </div>
+        <div style="padding: 20px; text-align: center; color: #666;">
+            <p>PowerPoint dosyaları tarayıcılarda doğrudan görüntülenemez. İndirip bilgisayarınızda açabilirsiniz.</p>
+            <p><em>İpucu: Eğer sunumun sitede görüntülenmesini istiyorsanız, PPTX'i PDF'e çevirip yukarıdaki PDF kodunu kullanın.</em></p>
+        </div>
+    </div>
 
-<div class="container">
-
-<h1>Kaan Menekşedağ</h1>
-
-<p class="subtitle">
-Software Engineer • GPU Computing • Quantitative Finance
-</p>
-
-<hr>
-
-<h2>📄 Curriculum Vitae</h2>
-
-<a class="button" href="cv/Kaan_Meneksedag_CV.pdf" target="_blank">
-Download CV
-</a>
-
-<hr>
-
-<h2>📚 Publications</h2>
-
-<ul>
-
-<li>
-<a href="papers/The_Thesis2.pdf" target="_blank">
-Master Thesis
-</a>
-</li>
-
-<li>
-<a href="papers/RAY_TRACING_ON_GRAPHIC_PROCESSORS.pdf" target="_blank">
-Ray Tracing on Graphic Processors
-</a>
-</li>
-
-<li>
-<a href="papers/ParCFD2019_Extended_Abstract.pdf" target="_blank">
-ParCFD 2019 Extended Abstract
-</a>
-</li>
-
-</ul>
-
-<hr>
-
-<h2>🎤 Presentations</h2>
-
-<ul>
-
-<li>
-<a href="presentations/ParCFD2019.pptx">
-ParCFD2019
-</a>
-</li>
-
-<li>
-<a href="presentations/33rd_Sisecam_Glass_Symposium_BASOL.pptx">
-Glass Symposium
-</a>
-</li>
-
-<li>
-<a href="presentations/COMBINED_RADIATION_AND_CONDUCTION_HEAT_TRANSFER.pptx">
-Combined Radiation and Conduction Heat Transfer
-</a>
-</li>
-
-</ul>
-
-<hr>
-
-<h2>🎥 Video</h2>
-
-<video controls width="100%">
-<source src="videos/introduction.mp4" type="video/mp4">
-Your browser does not support video.
-</video>
-
-<hr>
-
-<h2>📧 Contact</h2>
-
-<p>
-<a href="mailto:kmeneksedag@gmail.com">
-kmeneksedag@gmail.com
-</a>
-</p>
-
-</div>
-
-</body>
-</html>
+    <!-- 3. MP4 BÖLÜMÜ (Video oynatıcı) -->
+    <div style="margin-bottom: 40px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div style="background: #f4f4f4; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; color: #5bc0de;">🎥 Video Sunumu / Tanıtım (MP4)</h3>
+            <a href="videom.mp4" download style="background: #5bc0de; color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; font-size: 14px;">Videoyu İndir</a>
+        </div>
+        <!-- Video oynatıcı -->
+        <video width="100%" controls style="display: block; background: #000;">
+            <source src="ODTÜ Final Proje-Garbage Collector.mp4" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+    </div>
+</section>
+<!-- DOSYALAR BÖLÜMÜ BİTİŞ -->
