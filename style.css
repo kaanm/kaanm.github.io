@@ -173,21 +173,29 @@ body {
 /* PDF ve PPTX IFRAME - BÜYÜK & ORTALI */
 /* =============================== */
 #pdf-section iframe,
+/* POWERPOINT SUNUMLAR - ÇOK BÜYÜK */
 #pptx-section iframe {
+    width: 100% !important;
+    max-width: 1400px !important;
+    height: 1000px !important;  /* Daha yüksek */
+    min-height: 800px !important;
     display: block !important;
     margin: 30px auto !important;
-    width: 95% !important;
-    max-width: 1200px !important;
-    height: 900px !important;
-    border: 2px solid #ddd !important;
-    border-radius: 10px !important;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
+    border: 3px solid #f39c12 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2) !important;
 }
 
-#pdf-section .file-item,
 #pptx-section .file-item {
+    padding: 40px 30px !important;
     text-align: center !important;
-    padding: 30px 20px !important;
+}
+
+/* Mobilde küçült */
+@media (max-width: 768px) {
+    #pptx-section iframe {
+        height: 600px !important;
+    }
 }
 
 /* PDF Viewer (canvas tabanlı) */
