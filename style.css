@@ -306,7 +306,7 @@ video {
 #mp4-section video {
     width: 100% !important;
     max-width: 100% !important;
-    min-height: 500px !important;
+    min-height: 1000px !important;
     height: auto !important;
     display: block !important;
     margin: 20px auto !important;
