@@ -67,25 +67,33 @@ const pptxFiles = [
 ];
 
 const mp4Files = [
-    "ODTÜ Final Proje-Garbage Collector.mp4",     
-
+    {
+        file: "ODTÜ Final Proje-Garbage Collector.mp4",
+        title: "Garbage Collector Projesi",
+        description: "ODTÜ Bitirme Projesi - Çöp Toplayıcı Robot Simülasyonu"
+    }
 ];
+// MP4 dosyalarını listele ve oynat
+const mp4Container = document.getElementById('mp4-container');
+mp4Files.forEach(item => {
+    const fileName = item.file.replace('.mp4', '').replace(/_/g, ' ');
+    const div = document.createElement('div');
+    div.className = 'file-item';
+    div.innerHTML = `
+        <div class="file-header">
+            <span class="file-name">🎥 ${item.title || fileName}</span>
+            <a href="${encodeURI(item.file)}" class="btn btn-mp4" download>📥 Video İndir</a>
+        </div>
+        <video controls>
+            <source src="${encodeURI(item.file)}" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+        ${item.description ? `<p class="video-description" style="margin-top: 15px; color: #666; font-size: 0.95em; line-height: 1.6;">${item.description}</p>` : ''}
+    `;
+    mp4Container.appendChild(div);
+});    
     
-<div class="file-item">
-    <div class="file-header">
-        <span class="file-name">🎥 ODTÜ Final Proje-Garbage Collector</span>
-        <a href="ODTÜ Final Proje-Garbage Collector.mp4" class="btn btn-mp4" download>📥 Video İndir</a>
-    </div>
-    <video controls>
-        <source src="ODTÜ Final Proje-Garbage Collector.mp4" type="video/mp4">
-        Tarayıcınız video etiketini desteklemiyor.
-    </video>
-    <p style="margin-top: 15px; color: #666; font-size: 0.95em; padding: 10px; background: #f8f9fa; border-radius: 5px;">
-        <strong>Proje Hakkında:</strong> ODTÜ Makine Mühendisliği Bölümü Bitirme Projesi - 
-        Çöp Toplayıcı Robot Simülasyonu. Bu projede otonom çöp toplama sistemi geliştirilmiştir.
-    </p>
-</div>
-    
+  
 // PDF'leri otomatik listele ve göster
 const pdfContainer = document.getElementById('pdf-container');
 pdfFiles.forEach((file, index) => {
