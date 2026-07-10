@@ -325,3 +325,41 @@ video {
         text-align: center;
     }
 }
+/* PDF Viewer - Büyük ve Ortalanmış */
+.pdf-viewer {
+    width: 100%;
+    max-height: none;  /* Yükseklik sınırı kaldır */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px auto;
+    background: #f5f5f5;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.pdf-canvas {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: block;
+    margin: 0 auto;
+}
+
+/* PDF Container - Ortalama */
+#pdf-section .file-item {
+    text-align: center;
+}
+
+/* Responsive - Mobilde küçült */
+@media (max-width: 768px) {
+    .pdf-viewer {
+        padding: 10px;
+    }
+    
+    .pdf-canvas {
+        max-width: 100%;
+    }
+}
