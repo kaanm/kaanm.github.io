@@ -110,7 +110,7 @@ pptxFiles.forEach(file => {
     pptxContainer.appendChild(div);
 });
 
-// MP4 dosyalarını listele ve oynat
+// MP4 dosyalarını listele ve oynat - AÇIKLAMA VİDEODAN ÖNCE
 const mp4Container = document.getElementById('mp4-container');
 mp4Files.forEach(item => {
     const fileName = item.file.replace('.mp4', '').replace(/_/g, ' ');
@@ -122,13 +122,13 @@ mp4Files.forEach(item => {
             <span class="file-name">🎥 ${fileName}</span>
             <a href="${encodedFile}" class="btn btn-mp4" download>📥 Video İndir</a>
         </div>
+        <p class="info" style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-left: 3px solid #27ae60; border-radius: 3px;">
+            <strong>📋 Açıklama:</strong> ${item.description}
+        </p>
         <video controls>
             <source src="${encodedFile}" type="video/mp4">
             Tarayıcınız video etiketini desteklemiyor.
         </video>
-        <div class="video-description">
-            <strong> Açıklama:</strong> ${item.description}
-        </div>
     `;
     mp4Container.appendChild(div);
 });
