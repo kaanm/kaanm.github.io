@@ -95,19 +95,23 @@ pdfFiles.forEach((file, index) => {
     pdfContainer.appendChild(div);
 });
 
-// PPTX dosyalarını listele
+// PPTX dosyalarını listele ve ÖNİZLEME ile göster
 const pptxContainer = document.getElementById('pptx-container');
-pptxFiles.forEach(file => {
+pptxFiles.forEach((file, index) => {
     const fileName = file.replace('.pptx', '').replace(/_/g, ' ');
-    const encodedFile = encodeURI(file);  // 🔑
+    const encodedFile = encodeURI(file);
+    const githubUrl = `https://kaanm.github.io/${encodedFile}`;
+    const officeViewerUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(githubUrl)}`;
+    
     const div = document.createElement('div');
     div.className = 'file-item';
     div.innerHTML = `
         <div class="file-header">
-            <span class="file-name"> ${fileName}</span>
+            <span class="file-name">📊 ${fileName}</span>
             <a href="${encodedFile}" class="btn btn-pptx" download>📥 Sunumu İndir</a>
         </div>
-        <p class="info">💡 PowerPoint dosyaları tarayıcıda doğrudan görüntülenemez. İndirip bilgisayarınızda açabilirsiniz.</p>
+        <p class="info">Sunum önizlemesi aşağıda görüntüleniyor...</p>
+        <iframe src="${officeViewerUrl}" width="100%" height="600px" frameborder="0" style="border: 1px solid #ddd; border-radius: 5px;"></iframe>
     `;
     pptxContainer.appendChild(div);
 });
