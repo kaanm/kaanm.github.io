@@ -88,7 +88,7 @@ mp4Files.forEach(item => {
             <source src="${encodeURI(item.file)}" type="video/mp4">
             Tarayıcınız video etiketini desteklemiyor.
         </video>
-        ${item.description ? `<p class="video-description" style="margin-top: 15px; color: #666; font-size: 0.95em; line-height: 1.6;">${item.description}</p>` : ''}
+        ${item.description? `<p class="video-description" style="margin-top: 15px; color: #666; font-size: 0.95em; line-height: 1.6;">${item.description}</p>` : ''}
     `;
     mp4Container.appendChild(div);
 });    
