@@ -163,16 +163,43 @@ body {
 .btn-pptx { background: linear-gradient(135deg, #f39c12, #d68910); }
 .btn-mp4 { background: linear-gradient(135deg, #27ae60, #1e8449); }
 
-/* PDF VIEWER */
+.info {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+/* =============================== */
+/* PDF ve PPTX IFRAME - BÜYÜK & ORTALI */
+/* =============================== */
+#pdf-section iframe,
+#pptx-section iframe {
+    display: block !important;
+    margin: 30px auto !important;
+    width: 95% !important;
+    max-width: 1200px !important;
+    height: 900px !important;
+    border: 2px solid #ddd !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
+}
+
+#pdf-section .file-item,
+#pptx-section .file-item {
+    text-align: center !important;
+    padding: 30px 20px !important;
+}
+
+/* PDF Viewer (canvas tabanlı) */
 .pdf-viewer {
     width: 100%;
-    max-height: 500px;
+    max-height: none;
     overflow-y: auto;
     border: 1px solid #ddd;
     border-radius: 8px;
-    margin-top: 10px;
+    margin: 20px auto;
     background: #f5f5f5;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: center;
 }
@@ -180,28 +207,81 @@ body {
 .pdf-canvas {
     max-width: 100%;
     height: auto;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     display: block;
+    margin: 0 auto;
 }
 
-.info {
-    color: #666;
-    font-size: 0.9em;
+/* =============================== */
+/* VİDEO BÖLÜMÜ */
+/* =============================== */
+#mp4-section .file-item {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+#mp4-section .file-header {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#mp4-section .file-name {
+    color: white;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+video {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    background: #000;
+    border: 3px solid #fff;
+}
+
+.video-description,
+#mp4-section .info {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-left: 5px solid #27ae60;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: #495057;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+#mp4-section .info strong {
+    color: #27ae60;
+    font-size: 1.1em;
+    display: block;
     margin-bottom: 10px;
 }
 
-/* VIDEO */
-video {
-    width: 100%;
-    max-width: 100%;
-    margin: 20px auto;
-    display: block;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    background: #000;
+.btn-mp4 {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
 }
 
-/* MOBİL */
+.btn-mp4:hover {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
+}
+
+/* =============================== */
+/* MOBİL UYUMLULUK */
+/* =============================== */
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
@@ -235,82 +315,13 @@ video {
     .nav-link.active {
         border-bottom-color: #3498db;
     }
-}
-/* VİDEO BÖLÜMÜ - Geliştirilmiş */
-#mp4-section .file-item {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-#mp4-section .file-header {
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
-    color: white;
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-#mp4-section .file-name {
-    color: white;
-    font-size: 1.3em;
-    font-weight: 600;
-}
-
-/* Video Container */
-video {
-    width: 100%;
-    max-width: 900px;
-    margin: 20px auto;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    background: #000;
-    border: 3px solid #fff;
-}
-
-/* Video Açıklama Kutusu */
-.video-description,
-#mp4-section .info {
-    background: linear-gradient(135deg, #ffffff, #f8f9fa);
-    border-left: 5px solid #27ae60;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 15px 0;
-    font-size: 0.95em;
-    line-height: 1.7;
-    color: #495057;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-#mp4-section .info strong {
-    color: #27ae60;
-    font-size: 1.1em;
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Video İndir Butonu */
-.btn-mp4 {
-    background: linear-gradient(135deg, #27ae60, #2ecc71);
-    box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
-}
-
-.btn-mp4:hover {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
-}
-
-/* Video Başlık Bölümü */
-#mp4-section .category h2 {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-}
-
-/* Responsive Video */
-@media (max-width: 768px) {
+    
+    #pdf-section iframe,
+    #pptx-section iframe {
+        width: 100% !important;
+        height: 600px !important;
+    }
+    
     video {
         border-radius: 8px;
         border: 2px solid #fff;
@@ -323,55 +334,5 @@ video {
     #mp4-section .file-header {
         flex-direction: column;
         text-align: center;
-    }
-}
-/* PDF Iframe - BÜYÜT ve ORTALA */
-#pdf-section iframe {
-    display: block !important;
-    margin: 30px auto !important;
-    width: 95% !important;
-    max-width: 1200px !important;
-    height: 900px !important;  /* Yükseklik artırıldı */
-    border: 2px solid #ddd !important;
-    border-radius: 10px !important;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
-}
-
-/* PDF Container */
-#pdf-section .file-item {
-    text-align: center !important;
-    padding: 30px 20px !important;
-}
-
-/* Mobil */
-@media (max-width: 768px) {
-    #pdf-section iframe {
-        width: 100% !important;
-        height: 600px !important;
-    }
-}
-/* PDF Iframe - BÜYÜT ve ORTALA */
-#pdf-section iframe {
-    display: block !important;
-    margin: 30px auto !important;
-    width: 95% !important;
-    max-width: 1200px !important;
-    height: 900px !important;  /* Yükseklik artırıldı */
-    border: 2px solid #ddd !important;
-    border-radius: 10px !important;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
-}
-
-/* PDF Container */
-#pdf-section .file-item {
-    text-align: center !important;
-    padding: 30px 20px !important;
-}
-
-/* Mobil */
-@media (max-width: 768px) {
-    #pdf-section iframe {
-        width: 100% !important;
-        height: 600px !important;
     }
 }
