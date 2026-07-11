@@ -190,7 +190,22 @@ body {
     font-size: 0.9em;
     margin-bottom: 10px;
 }
+/* CV BÖLÜMÜ - BÜYÜK VE ORTALI */
+#cv-section iframe {
+    display: block !important;
+    margin: 30px auto !important;
+    width: 95% !important;
+    max-width: 1200px !important;
+    height: 900px !important;
+    border: 2px solid #ddd !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
+}
 
+#cv-section .file-item {
+    text-align: center !important;
+    padding: 30px 20px !important;
+}
 /* =============================== */
 /* PDF ve PPTX IFRAME - BÜYÜK & ORTALI */
 /* =============================== */
