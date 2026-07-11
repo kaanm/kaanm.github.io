@@ -210,6 +210,8 @@ body {
 /* PDF ve PPTX IFRAME - BÜYÜK & ORTALI */
 /* =============================== */
 #pdf-section iframe,
+.category iframe[src*=".pdf"],
+.category iframe[src*="pdf"],
 /* POWERPOINT SUNUMLAR - ÇOK BÜYÜK */
 #pptx-section iframe {
     width: 100% !important;
