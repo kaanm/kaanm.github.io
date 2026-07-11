@@ -111,7 +111,7 @@ const mp4Files = [
     const dipolFiles = [
         "BİGG1512_Dipol_Son_Sunum.pdf"    
 ];  
-// Dipol Teknoloji PDF'leri otomatik listele ve göster
+// CV PDF'leri otomatik listele ve göster
 const cvContainer = document.getElementById('cv-container');
 cvFiles.forEach((file, index) => {
     const fileName = file.replace('.pdf', '').replace(/_/g, ' ');
@@ -125,7 +125,7 @@ cvFiles.forEach((file, index) => {
         </div>
         <p class="info">PDF önizlemesi aşağıda görüntüleniyor...</p>
         <iframe src="${encodedFile}#toolbar=0" 
-                title="Dipol PDF ${index + 1}" 
+                title="CV ${index + 1}" 
                 
         </iframe>
     `;
@@ -175,7 +175,7 @@ pptxFiles.forEach((file, index) => {
     pptxContainer.appendChild(div);
 });
 
-// MP4 dosyalarını listele ve oynat - DOĞRU SIRALAMA 
+// MP4 dosyalarını listele ve oynat - DOĞRU SIRALAMA
 const mp4Container = document.getElementById('mp4-container');
 mp4Files.forEach(item => {
     const fileName = item.file.replace('.mp4', '').replace(/_/g, ' ');
