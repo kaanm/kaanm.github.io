@@ -15,6 +15,10 @@
             <h2>📑 İçindekiler</h2>
         </div>
         <nav class="sidebar-nav">
+            <a href="#cv-section" class="nav-link active">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">CV</span>      
+                
             <a href="#pdf-section" class="nav-link active">
                 <span class="nav-icon">📄</span>
                 <span class="nav-text">Özyeğin Master Bildiriler (5 adet)</span>
@@ -43,7 +47,13 @@
     <!-- ANA İÇERİK -->
     <main class="main-content">
         <h1> Dosyalarım ve Çalışmalarım</h1>
-
+        
+        <!-- CV BÖLÜMÜ -->
+        <section id="cv-section" class="category">
+            <h2> CV</h2>
+            <div id="cv-container"></div>
+        </section>
+        
         <!-- PDF BÖLÜMÜ -->
         <section id="pdf-section" class="category">
             <h2> Özyeğin Master Bildiriler</h2>
@@ -71,6 +81,9 @@
 </div>
 <script>
 // ===== DOSYA LİSTELERİ (GitHub'daki TAM dosya isimlerini yazın) =====
+const cvFiles = [
+        "Kaan_Menekşedağ_CV_EN.pdf"    
+]; 
 const pdfFiles = [
     "The_Thesis2.pdf",
     "ParCFD2019_Extended_Abstract.pdf",
@@ -98,6 +111,26 @@ const mp4Files = [
     const dipolFiles = [
         "BİGG1512_Dipol_Son_Sunum.pdf"    
 ];  
+// Dipol Teknoloji PDF'leri otomatik listele ve göster
+const cvContainer = document.getElementById('cv-container');
+cvFiles.forEach((file, index) => {
+    const fileName = file.replace('.pdf', '').replace(/_/g, ' ');
+    const encodedFile = encodeURI(file);
+    const div = document.createElement('div');
+    div.className = 'file-item';
+    div.innerHTML = `
+        <div class="file-header">
+            <span class="file-name">📄 ${fileName}</span>
+            <a href="${encodedFile}" class="btn btn-pdf" download>📥 PDF İndir</a>
+        </div>
+        <p class="info">PDF önizlemesi aşağıda görüntüleniyor...</p>
+        <iframe src="${encodedFile}#toolbar=0" 
+                title="Dipol PDF ${index + 1}" 
+                
+        </iframe>
+    `;
+    cvContainer.appendChild(div);
+});    
 // PDF'leri otomatik listele ve göster
 const pdfContainer = document.getElementById('pdf-container');
 pdfFiles.forEach((file, index) => {
