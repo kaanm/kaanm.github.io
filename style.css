@@ -58,39 +58,45 @@ body {
 .nav-link:hover {
     background: rgba(255,255,255,0.1);
     color: white;
-    border-left-color: #3498db;
     padding-left: 30px;
 }
 
-.nav-link.active {
-    background: rgba(52, 152, 219, 0.2);
-    color: white;
-    border-left-color: #3498db;
-    font-weight: 600;
-}
-/* PDF BELGELER - Mavi */
+/* Her bölüm için farklı aktif renk */
 .nav-link[href="#pdf-section"].active {
     background: rgba(52, 152, 219, 0.2);
     border-left-color: #3498db;
+    color: white;
+    font-weight: 600;
 }
 
-/* SUNUMLAR - Turuncu */
 .nav-link[href="#pptx-section"].active {
     background: rgba(230, 126, 34, 0.2);
     border-left-color: #e67e22;
+    color: white;
+    font-weight: 600;
 }
 
-/* VİDEOLAR - Yeşil */
 .nav-link[href="#mp4-section"].active {
     background: rgba(46, 204, 113, 0.2);
     border-left-color: #2ecc71;
+    color: white;
+    font-weight: 600;
 }
 
-/* DİPOL TEKNOLOJİ - Mor */
 .nav-link[href="#dipol-section"].active {
     background: rgba(155, 89, 182, 0.2);
     border-left-color: #9b59b6;
+    color: white;
+    font-weight: 600;
 }
+
+.nav-link[href="#cv-section"].active {
+    background: rgba(231, 76, 60, 0.2);
+    border-left-color: #e74c3c;
+    color: white;
+    font-weight: 600;
+}
+
 .nav-icon {
     font-size: 1.3em;
     margin-right: 12px;
@@ -190,8 +196,15 @@ body {
     font-size: 0.9em;
     margin-bottom: 10px;
 }
-/* CV BÖLÜMÜ - BÜYÜK VE ORTALI */
-#cv-section iframe {
+
+/* =============================== */
+/* TÜM PDF IFRAME'LERİ - BÜYÜK & ORTALI */
+/* =============================== */
+#pdf-section iframe,
+#cv-section iframe,
+#dipol-section iframe,
+.category iframe[src*=".pdf"],
+.category iframe[src*="pdf"] {
     display: block !important;
     margin: 30px auto !important;
     width: 95% !important;
@@ -202,41 +215,16 @@ body {
     box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
 }
 
-#cv-section .file-item {
+#pdf-section .file-item,
+#cv-section .file-item,
+#dipol-section .file-item {
     text-align: center !important;
     padding: 30px 20px !important;
 }
-/* =============================== */
-/* PDF ve PPTX IFRAME - BÜYÜK & ORTALI */
-/* =============================== */
-#pdf-section iframe,
-.category iframe[src*=".pdf"],
-.category iframe[src*="pdf"],
-/* POWERPOINT SUNUMLAR - ÇOK BÜYÜK */
-#pptx-section iframe {
-    width: 100% !important;
-    max-width: 1400px !important;
-    height: 1000px !important;  /* Daha yüksek */
-    min-height: 800px !important;
-    display: block !important;
-    margin: 30px auto !important;
-    border: 3px solid #f39c12 !important;
-    border-radius: 12px !important;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.2) !important;
-}
 
-#pptx-section .file-item {
-    padding: 40px 30px !important;
-    text-align: center !important;
-}
-
-/* Mobilde küçült */
-@media (max-width: 768px) {
-    #pptx-section iframe {
-        height: 600px !important;
-    }
-}
-/* POWERPOINT - TAM GENİŞLİK */
+/* =============================== */
+/* POWERPOINT SUNUMLAR - TAM GENİŞLİK */
+/* =============================== */
 #pptx-section iframe {
     width: 100% !important;
     max-width: 100% !important;
@@ -253,27 +241,6 @@ body {
     text-align: center !important;
     overflow: hidden !important;
 }
-/* PDF Viewer (canvas tabanlı) */
-.pdf-viewer {
-    width: 100%;
-    max-height: none;
-    overflow-y: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 20px auto;
-    background: #f5f5f5;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.pdf-canvas {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    display: block;
-    margin: 0 auto;
-}
 
 /* =============================== */
 /* VİDEO BÖLÜMÜ */
@@ -281,7 +248,7 @@ body {
 #mp4-section .file-item {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     border-radius: 12px;
-    padding: 25px;
+    padding: 30px !important;
     margin-bottom: 25px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
@@ -300,18 +267,18 @@ body {
     font-weight: 600;
 }
 
-video {
-    width: 100%;
-    max-width: 900px;
-    margin: 20px auto;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    background: #000;
-    border: 3px solid #fff;
+#mp4-section video {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 500px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 20px auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2) !important;
+    background: #000 !important;
 }
 
-.video-description,
 #mp4-section .info {
     background: linear-gradient(135deg, #ffffff, #f8f9fa);
     border-left: 5px solid #27ae60;
@@ -341,23 +308,7 @@ video {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
 }
-/* VİDEO BÜYÜT */
-#mp4-section video {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: 1000px !important;
-    height: auto !important;
-    display: block !important;
-    margin: 20px auto !important;
-    border-radius: 8px !important;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2) !important;
-    background: #000 !important;
-}
 
-/* Video container padding artır */
-#mp4-section .file-item {
-    padding: 30px !important;
-}
 /* =============================== */
 /* MOBİL UYUMLULUK */
 /* =============================== */
@@ -391,44 +342,35 @@ video {
         white-space: nowrap;
     }
     
-    .nav-link.active {
-        border-bottom-color: #3498db;
+    .nav-link[href="#pdf-section"].active,
+    .nav-link[href="#pptx-section"].active,
+    .nav-link[href="#mp4-section"].active,
+    .nav-link[href="#dipol-section"].active,
+    .nav-link[href="#cv-section"].active {
+        border-bottom-width: 3px;
+        border-left: none;
     }
     
+    .nav-link[href="#pdf-section"].active { border-bottom-color: #3498db; }
+    .nav-link[href="#pptx-section"].active { border-bottom-color: #e67e22; }
+    .nav-link[href="#mp4-section"].active { border-bottom-color: #2ecc71; }
+    .nav-link[href="#dipol-section"].active { border-bottom-color: #9b59b6; }
+    .nav-link[href="#cv-section"].active { border-bottom-color: #e74c3c; }
+    
     #pdf-section iframe,
+    #cv-section iframe,
+    #dipol-section iframe,
     #pptx-section iframe {
         width: 100% !important;
         height: 600px !important;
     }
     
-    video {
-        border-radius: 8px;
-        border: 2px solid #fff;
-    }
-    
     #mp4-section .file-item {
-        padding: 15px;
+        padding: 15px !important;
     }
     
     #mp4-section .file-header {
         flex-direction: column;
         text-align: center;
     }
-}
-
-/* DİPOL BÖLÜMÜ - BÜYÜK VE ORTALI */
-#dipol-section iframe {
-    display: block !important;
-    margin: 30px auto !important;
-    width: 95% !important;
-    max-width: 1200px !important;
-    height: 900px !important;
-    border: 2px solid #ddd !important;
-    border-radius: 10px !important;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15) !important;
-}
-
-#dipol-section .file-item {
-    text-align: center !important;
-    padding: 30px 20px !important;
 }
